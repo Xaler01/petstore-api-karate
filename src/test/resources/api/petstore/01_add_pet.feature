@@ -1,12 +1,8 @@
-Feature: Add a new pet to the store / Anadir una mascota a la tienda
+Feature: Add multiple pets from JSON / Añadir múltiples mascotas desde JSON
 
-Scenario: Add a pet
-    Given url baseUrl + '/pet'
-    And request { "id": 123, "name": "Miguelito", "status": "available" }
-    When method POST
-    Then status 200
-    And print response
-    And match response.id == 123
-    And match response.name == 'Miguelito'
-    And match response.status == 'available'
+    Background:
+        * def pets = read('classpath:data/pets.json')
 
+    Scenario: Add pets dynamically from file
+        * def addPet = function(pet){ return karate.call('classpath:api/petstore/add_pet_single.feature', pet) }
+        * def result = pets.map(addPet)

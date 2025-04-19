@@ -1,52 +1,99 @@
-# **Ejercicio Petstore Swagger - README**
 
-### **Descripción**
+# **🐾 Ejercicio Petstore Swagger - README**
 
-Este proyecto implementa pruebas automatizadas de API utilizando **Karate** para interactuar con el servicio de **Petstore Swagger**. Los escenarios de prueba incluyen:
+## 📌 Descripción
 
-1. **Añadir una mascota a la tienda**.
-2. **Recuperar la mascota previamente añadida por su ID**.
-3. **Actualizar el nombre y el estado de la mascota a 'Sold'**.
-4. **Consultar la mascota modificada por su estado (buscar por estado)**.
+Este proyecto implementa pruebas automatizadas de API utilizando **Karate** para interactuar con el servicio de **Petstore Swagger**. Los escenarios de prueba cubren el flujo completo de una mascota dentro de la tienda:
 
-### **Instrucciones para la ejecución**
+1. ✅ **Agregar múltiples mascotas desde un archivo JSON.**
+2. 🔍 **Consultar mascotas por ID.**
+3. ✏️ **Actualizar el nombre y el estado de las mascotas a _"sold"_.**
+4. 🔁 **Consultar mascotas por su estado actualizado (_"sold"_).**
 
-#### **Requisitos**
+Cada etapa está diseñada para validar tanto la funcionalidad del servicio como la consistencia de los datos.
 
-- **Java JDK 11+** instalado y configurado en el sistema.
-- **Maven** instalado y configurado en el sistema.
-- **Karate** configurado en el proyecto.
-- Editor de código compatible como **PyCharm** o **IntelliJ IDEA**.
+---
 
-### **Pasos para configurar y ejecutar el proyecto**
+## 🧰 Requisitos
 
-1. **Clonar el repositorio**  
-   Clona el repositorio público desde GitHub. El enlace al repositorio será provisto en la entrega final.
+Asegúrate de tener instalado lo siguiente en tu entorno de desarrollo:
 
-   ```bash
-   git clone https://github.com/Xaler01/PruebaTecnica
-   cd Petstore
-   
-2. **Compilar el proyecto con Maven**  
-   Navega hasta el directorio raíz del proyecto y compilar:
+- **Java JDK 11+**
+- **Apache Maven**
+- **Editor compatible** (recomendado: IntelliJ IDEA o VSCode)
+- **Karate** (incluido como dependencia en el proyecto)
 
-    ```bash
-   mvn clean install
+---
 
-3. **Ejecutar las pruebas de Karate**  
-Una vez instalado todo se puede ejecutar los casos de prueba definidos en los archivos .feature de Karate. 
+## 🚀 Cómo ejecutar el proyecto
 
-     ```bash
-     mvn test
+### 1. Clona el repositorio
 
-4. **Generación de Reportes**  
-Los reportes de las pruebas se generarán automáticamente en el directorio target/karate-reports. Para visualizar los reportes de HTML se debe abrir el archivo karate-summary.html en un navegador.
+```bash
+git clone https://github.com/Xaler01/petstore-api-karate
+cd Petstore
+```
 
-    ```bash
-    open target/karate-reports/karate-summary.html
-  
-5. **Imagenes de ejemplo de reporte con Karate**  
+### 2. Compila el proyecto con Maven
 
-   ![Reporte con Karate](ReporteKarate1.png)  
-6. 
-   ![Reporte con Karate](ReporteKarate2.png)
+```bash
+mvn clean install
+```
+
+### 3. Ejecuta los tests con Karate
+
+```bash
+mvn test
+```
+
+### 4. Revisa los reportes de ejecución
+
+Los reportes HTML se generan automáticamente en la siguiente ruta:
+
+```bash
+target/karate-reports/karate-summary.html
+```
+
+Ábrelos en tu navegador para revisar resultados detallados:
+
+```bash
+open target/karate-reports/karate-summary.html
+```
+
+---
+
+## 📊 Reportes de ejemplo
+
+| Reporte | Vista previa |
+|--------|--------------|
+| Resumen de pruebas | ![Reporte con Karate](ReporteKarate1.png) |
+| Resultados detallados | ![Reporte con Karate](ReporteKarate2.png) |
+
+---
+
+## 📁 Estructura del proyecto (opcional)
+
+```bash
+Petstore/
+├── data/
+│   ├── pets.json
+│   └── pets-to-update.json
+├── api/petstore/
+│   ├── 01_add_pet.feature
+│   ├── 02_get_pet_Id.feature
+│   ├── 03_update_pet.feature
+│   ├── 04_get_pet_by_status.feature
+│   ├── add_pet_single.feature
+│   ├── update_pet_single.feature
+│   └── get_pet_by_id_single.feature
+├── PetStoreTestRunner.java
+├── pom.xml
+└── README.md
+```
+
+---
+
+## ✅ Consideraciones finales
+
+- Las pruebas están basadas en el entorno público de Swagger Petstore. Asegúrate de que el endpoint esté disponible antes de ejecutar los tests.
+- La lógica incluye manejo de valores opcionales en la actualización de datos (por ejemplo, el nombre).

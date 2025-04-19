@@ -1,0 +1,9 @@
+[
+  { "id": 123, "name": "Miguelito", "status": "available" },
+  { "id": 124, "name": "Frida", "status": "pending" },
+  { "id": 125, "name": "Lola", "status": "available" },
+  { "id": 126, "name": "Milo", "status": "pending" },
+  { "id": 127, "name": "Nina", "status": "available" },
+  { "id": 128, "name": "Rocco", "status": "pending" },
+  { "id": 129, "name": "Sasha", "status": "available" }
+]
